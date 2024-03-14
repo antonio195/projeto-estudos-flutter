@@ -1,6 +1,6 @@
 import 'package:curso_flutterando_2021/app_controller.dart';
 import 'package:curso_flutterando_2021/pages/home_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:curso_flutterando_2021/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,11 +23,16 @@ class MyApp extends StatelessWidget {
     return AnimatedBuilder(
       builder: (context, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.red,
             brightness: changeTheme(),
           ),
-          home: const MyHomePage(title: "Home Page"),
+          initialRoute: "/",
+          routes: {
+            '/': (context) => LoginPage(),
+            '/home': (context) => MyHomePage(title: "Home Page"),
+          },
         );
       },
       animation: AppController.instance,
