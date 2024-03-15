@@ -11,6 +11,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
+  String urlImage =
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo_TV_2015.png/250px-Logo_TV_2015.png';
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,12 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  width: 130,
+                  height: 130,
+                  child: Image.network(urlImage),
+                ),
+                SizedBox(height: 60,),
                 TextField(
                   onChanged: (value) {
                     email = value;
@@ -49,7 +57,8 @@ class _LoginPageState extends State<LoginPage> {
                 OutlinedButton(
                   child: const Text("Login"),
                   onPressed: () {
-                    if(email == "antonio195br@gmail.com" && password == "sptech"){
+                    if (email == "antonio195br@gmail.com" &&
+                        password == "sptech") {
                       Navigator.of(context).pushReplacementNamed("/home");
                     }
                   },
